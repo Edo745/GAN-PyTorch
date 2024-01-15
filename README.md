@@ -20,5 +20,5 @@ For a detailed walkthrough and experimentation, refer to the [Colab Notebook](ht
 Generated images and training progress will be saved in the `results` directory.
 
 ## References
-- Goodfellow, I. J., et al. "Generative Adversarial Nets." arXiv preprint arXiv:1406.2661 (2014) \url{https://arxiv.org/abs/1406.2661}.
+- Goodfellow, I. J., et al. "Generative Adversarial Nets." [arXiv preprint arXiv:1406.2661 (2014)](https://arxiv.org/abs/1406.2661).
 
