@@ -8,6 +8,7 @@ import time
 import os
 from models.generator import Generator
 from models.discriminator import Discriminator
+import shutil
 
 def train():
     # loading the MNIST dataset
@@ -22,7 +23,6 @@ def train():
 
     # checking the availability of cuda devices
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
-
 
     criterion = nn.BCELoss()
     
@@ -44,6 +44,7 @@ def train():
     loss_g, loss_d, d_fake, d_real = [],[],[],[]
 
     print("\nTRAINING\n")
+    
     
     for epoch in range(nepochs):
         for i, (data, labels) in enumerate(dataloader, 0):
@@ -107,7 +108,9 @@ def train():
             
             # Monitoring boiler plate
             t_end = time.time()
+            
             os.makedirs('GAN-Pytorch/results', exist_ok=True)
+            os.makedirs('GAN-Pytorch/checkpoints', exist_ok=True)
             if i % 100 == 0:
                 print('[%d/%d][%d/%d] Loss_D: %.4f Loss_G: %.4f D(x): %.4f D(G(z)): %.4f / %.4f %.1f images/s'
                         % (epoch+1, nepochs, i, len(dataloader),
@@ -121,7 +124,7 @@ def train():
                 d_real.append(D_x)
                 d_fake.append(D_G_z1)
                 vutils.save_image(fake.detach(),'GAN-Pytorch/results/fake_samples_epoch_%03d.png' % (epoch), normalize=True)
-        os.rmdir('GAN/checkpoints')
+        shutil.rmtree('GAN/checkpoints')        
         os.makedirs('GAN/checkpoints', exist_ok=True)
         torch.save(netG.state_dict(), f'GAN/checkpoints/netG_epoch_{epoch + 1}.pth')
                 
