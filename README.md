@@ -1,7 +1,7 @@
 ﻿# GAN-PyTorch
 
 ## Overview
-This project implements a Generative Adversarial Network (GAN) in PyTorch, following the paper "Generative Adversarial Nets" by Ian J. Goodfellow et al. CIFAR-10 dataset is used for training.
+This project implements a Generative Adversarial Network (GAN) in PyTorch, following the paper "Generative Adversarial Nets" by Ian J. Goodfellow et al. MNIST dataset is used for training.
 
 ## Dependencies
 - torch
@@ -10,7 +10,7 @@ This project implements a Generative Adversarial Network (GAN) in PyTorch, follo
 
 ## Usage
 1. Make sure you have the required dependencies installed.
-2. Run `training.py` to train the GAN on the CIFAR-10 dataset.
+2. Run `training.py` to train the GAN on the MNIST dataset.
 3. Run `generate.py --checkpoint=path/to/checkpoint.pth` to generate images from the trained GAN.
 
 ## Colab Notebook
